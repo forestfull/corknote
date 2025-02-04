@@ -5,11 +5,18 @@ salt: ${spring.profiles.active}
 spring:
   application:
     name: corknote
-  test:
-    username: ENC(ZQyMWTy27sp22By27RcthA==)
   jpa:
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
         show_sql: true
+tunneling:
+  database:
+    driver-class-name:
+    url:
+    username:
+    password:
+  ssh:
+    user:
+    host:

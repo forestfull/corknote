@@ -1,5 +1,6 @@
 package com.forestfull;
 
+import com.forestfull.logger.util.Log;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.jasypt.encryption.StringEncryptor;
@@ -14,8 +15,17 @@ public class Test {
 
 	private final StringEncryptor encryptor;
 
-	@Value("${spring.test.username}")
+	@Value("${tunneling.database.driver-class-name}")
+	private String driverName;
+
+	@Value("${tunneling.database.username}")
 	private String username;
+
+	@Value("${tunneling.database.url}")
+	private String url;
+
+	@Value("${tunneling.database.password}")
+	private String password;
 
 	@Autowired
 	public Test(@Qualifier("jasyptEncryptor") StringEncryptor encryptor) {
@@ -25,7 +35,10 @@ public class Test {
 	@Lazy
 	@PostConstruct
 	public void init() {
-		System.out.println(username);
+		Log.info("ENC(", driverName, ")");
+		Log.info("ENC(", url, ")");
+		Log.info("ENC(", username, ")");
+		Log.info("ENC(", password, ")");
 
 	}
 
