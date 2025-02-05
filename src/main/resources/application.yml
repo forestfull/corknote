@@ -13,12 +13,11 @@ spring:
       hibernate:
         show_sql: false
       hibernate.dialect: org.hibernate.dialect.MariaDBDialect
-    defer-datasource-initialization: true
 tunneling:
   database:
     driver-class-name: org.mariadb.jdbc.Driver
     schema: ENC(F2weUiWiZogpbCxkxoMqLw==)
-    port: ENC(sy6qElEasbrQPe9IXBUbKw==)
+    port: ENC(xtseO2lbw8n5dcliYubR+A==)
     username: ENC(T5PICLFbq/P+JbeyVXnQGg==)
     password: ENC(catEbbfMNijPZHqSWRWD54B7cLM77KX1)
   ssh:
@@ -28,4 +27,4 @@ tunneling:
     password: ENC(al37M+z/7bPz0cJmqg15Lf5Vqxdzb69J)
 logging:
   level:
-    org.springframework : OFF
+    root: off

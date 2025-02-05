@@ -28,6 +28,7 @@ public class JasyptConfig {
 
 		final PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
 		encryptor.setConfig(config);
+
 		return encryptor;
 	}
 
