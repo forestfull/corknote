@@ -11,14 +11,21 @@ spring:
       ddl-auto: create-drop
     properties:
       hibernate:
-        show_sql: true
+        show_sql: false
+      hibernate.dialect: org.hibernate.dialect.MariaDBDialect
+    defer-datasource-initialization: true
 tunneling:
   database:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ENC(H9GgIB2bucDRek4ssxNN5b830hCItdDATLui5RCYSJU0lxTp1F5QKsTtMnzqAuh4)
+    schema: ENC(F2weUiWiZogpbCxkxoMqLw==)
+    port: ENC(sy6qElEasbrQPe9IXBUbKw==)
     username: ENC(T5PICLFbq/P+JbeyVXnQGg==)
     password: ENC(catEbbfMNijPZHqSWRWD54B7cLM77KX1)
   ssh:
     host: ENC(+nWQqrJNLyu2UspL0tSwa3seNT30oD6sIQ7QlNgMO9w=)
-    user: ENC(QPV2VP7wxYIVJL0lRQv80w==)
+    port: ENC(trUdZa6Ifhcv6CnLnctflw==)
+    username: ENC(QPV2VP7wxYIVJL0lRQv80w==)
     password: ENC(al37M+z/7bPz0cJmqg15Lf5Vqxdzb69J)
+logging:
+  level:
+    org.springframework : OFF

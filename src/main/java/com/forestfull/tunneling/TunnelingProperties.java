@@ -1,4 +1,4 @@
-package com.forestfull.property;
+package com.forestfull.tunneling;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,17 +16,26 @@ public class TunnelingProperties {
 	@Getter
 	public static class Database {
 		private String driverClassName;
-		private String url;
+		private String schema;
+		private String port;
 		private String username;
 		private String password;
+
+		public Integer getPort() {
+			return Integer.valueOf(port);
+		}
 	}
 
 	@Setter
 	@Getter
 	public static class Ssh {
 		private String host;
-		private String user;
+		private String port;
+		private String username;
 		private String password;
-	}
 
+		public Integer getPort() {
+			return Integer.valueOf(port);
+		}
+	}
 }

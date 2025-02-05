@@ -28,11 +28,10 @@ public class JasyptConfig {
 
 		final PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
 		encryptor.setConfig(config);
-
 		return encryptor;
 	}
 
 	private void generateEncrypt(PooledPBEStringEncryptor encryptor, String message) {
-		Log.info(message, "=", "ENC(", encryptor.encrypt(message), ")");
+		Log.info(message, " = ", "ENC(", encryptor.encrypt(message), ")");
 	}
 }
