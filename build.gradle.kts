@@ -29,7 +29,7 @@ dependencies {
     implementation("com.forestfull.devops:kologger:1.0.3")
     implementation("com.github.mwiede:jsch:0.2.23")
     implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
