@@ -1,5 +1,6 @@
 package com.forestfull.config;
 
+import com.forestfull.logger.util.Log;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
@@ -29,5 +30,9 @@ public class JasyptConfig {
 		encryptor.setConfig(config);
 
 		return encryptor;
+	}
+
+	private void generateEncrypt(PooledPBEStringEncryptor encryptor, String message) {
+		Log.info(message, "=", "ENC(", encryptor.encrypt(message), ")");
 	}
 }

@@ -1,7 +1,8 @@
+salt: ${spring.profiles.active}
 jasypt:
   encryptor:
-    password: ${spring.profiles.active}
-salt: ${spring.profiles.active}
+    password: ${salt}
+    bean: jasyptEncryptor
 spring:
   application:
     name: corknote
@@ -13,10 +14,11 @@ spring:
         show_sql: true
 tunneling:
   database:
-    driver-class-name:
-    url:
-    username:
-    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(H9GgIB2bucDRek4ssxNN5b830hCItdDATLui5RCYSJU0lxTp1F5QKsTtMnzqAuh4)
+    username: ENC(T5PICLFbq/P+JbeyVXnQGg==)
+    password: ENC(catEbbfMNijPZHqSWRWD54B7cLM77KX1)
   ssh:
-    user:
-    host:
+    host: ENC(+nWQqrJNLyu2UspL0tSwa3seNT30oD6sIQ7QlNgMO9w=)
+    user: ENC(QPV2VP7wxYIVJL0lRQv80w==)
+    password: ENC(al37M+z/7bPz0cJmqg15Lf5Vqxdzb69J)
