@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.forestfull.devops:kologger:1.0.3")
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("com.github.mwiede:jsch:0.2.23")
     implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

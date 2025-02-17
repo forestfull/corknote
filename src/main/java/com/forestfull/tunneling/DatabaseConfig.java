@@ -1,10 +1,10 @@
 package com.forestfull.tunneling;
 
+import com.forestfull.logger.spring.Observable;
 import com.forestfull.logger.util.Log;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
-import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +13,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @Configuration
 @RequiredArgsConstructor
 public class DatabaseConfig {
 
+    private final Test test;
     private Session session;
     private final TunnelingProperties properties;
 
@@ -34,6 +34,8 @@ public class DatabaseConfig {
         session.connect();
 
         int randomPort = session.setPortForwardingL(0, "localhost", database.getPort());
+
+
 
         Log.info("connected to database");
 
