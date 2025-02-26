@@ -1,4 +1,4 @@
-package com.forestfull;
+package com.forestfull.router;
 
 import com.forestfull.log.up.spring.Observable;
 import com.forestfull.log.up.util.Log;
