@@ -2,14 +2,16 @@
 <html lang="ko">
 <head>
     <meta th:replace="~{/fragments/meta :: deafult-meta}">
-    <script th:replace="~{/fragments/meta :: general-script}"></script>
-    <style th:replace="~{/fragments/meta :: general-style}"></style>
+    <meta th:replace="~{/fragments/meta :: general-script}">
+    <meta th:replace="~{/fragments/meta :: general-style}">
+    <meta th:replace="~{/fragments/meta :: bootstrap}">
 
     <title>Cork Note</title>
 </head>
 <body>
 <header th:replace="~{/fragments/header :: header}"></header>
 
+<i class="bi bi-code-square"></i>
 
 <footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
