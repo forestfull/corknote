@@ -2,6 +2,7 @@ key: ${spring.profiles.active}
 jasypt:
   encryptor:
     password: ${key}
+    bean: jasyptEncryptor
 datasource:
   web:
     driver-class-name: ENC(ahNx+x/DY19+90SGknMpuHZ48Isl7lvAbt4pBcjtVeX5bfBzNfA9gEt43yVXuIg1Hp2UNwdZF/iUOWZ7GU2aJA==)
@@ -20,3 +21,8 @@ datasource:
       port: ENC(SvA53DXJWrxBC/jrtyPX6hHLSqAkpuUOAPAok28DTpQ0Il0ZU6mZ0jSEGo3vlzDS)
       username: ENC(fHKAO6a5Xa0jzTXp6w8k4I3dwESUEz47u+paUEaCjZejdaJhO41KXGkzYrXVl2hj)
       password: ENC(azmQwYxU5UAotIMfrjQ8KxzLSJOuzfrXBGG5S3L4Y2d+SvEFUqZIIUHZOL/3Pf5E)
+logup:
+  level: INFO # ALL, INFO, WARN, ERROR, OFF
+  log-format:
+    placeholder: "{datetime} {level} {thread} - {msg}{new-line}"
+    date-time-format: yyyy-MM-dd HH:mm:ss

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
 
-    @GetMapping("/{pathname}")
-    public String index(@PathVariable String pathname) {
+    @GetMapping("/")
+    public String index() {
 
-        return pathname;
+        return "index";
     }
 }
