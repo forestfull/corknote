@@ -69,7 +69,7 @@ public class DatabaseConfig {
     }
 
     @PreDestroy
-    public void stopSshTunnel() {
+    void stopSshTunnel() {
         if (session != null && session.isConnected()){
             session.disconnect();
             Log.info("Closing session");
