@@ -26,3 +26,11 @@ logup:
   log-format:
     placeholder: "{datetime} {level} {thread} - {msg}{new-line}"
     date-time-format: yyyy-MM-dd HH:mm:ss
+logging:
+  level:
+    org.springframework : error
+    com.ulisesbocchio: error
+    org.apache: error
+    com.forestfull: error
+server:
+  port: 80
