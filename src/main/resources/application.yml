@@ -1,3 +1,21 @@
 jasypt:
   encryptor:
     password: ${key}
+datasource:
+  web:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url:
+    username:
+    password:
+  tunneling:
+    database:
+      driver-class-name: org.mariadb.jdbc.Driver
+      schema:
+      port:
+      username:
+      password:
+    ssh:
+      host:
+      port:
+      username:
+      password:
