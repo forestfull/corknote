@@ -14,6 +14,7 @@ public class JasyptConfig {
     StringEncryptor stringEncryptor(@Value("${jasypt.encryptor.password}") String password) {
         final PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         encryptor.setPassword(password);
+        encryptor.setPoolSize(1);
 
         return encryptor;
     }
