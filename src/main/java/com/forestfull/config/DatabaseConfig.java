@@ -5,8 +5,10 @@ import com.forestfull.prop.TunnelingProperties;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,11 +17,15 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-@RequiredArgsConstructor
 public class DatabaseConfig {
 
     private Session session;
     private final TunnelingProperties properties;
+
+    @Autowired
+    public DatabaseConfig(TunnelingProperties properties) {
+        this.properties = properties;
+    }
 
     @Bean(name = "webDataSource")
     DataSource webDataSource(@Value("${datasource.web.driver-class-name}") String driverClassName
@@ -28,6 +34,7 @@ public class DatabaseConfig {
             , @Value("${datasource.web.password}") String password) {
 
         DataSource dataSource = DataSourceBuilder.create()
+                .type(HikariDataSource.class)
                 .driverClassName(driverClassName)
                 .url(url)
                 .username(username)
@@ -53,6 +60,7 @@ public class DatabaseConfig {
         int randomPort = session.setPortForwardingL(0, "localhost", database.getPort());
 
         DataSource dataSource = DataSourceBuilder.create()
+                .type(HikariDataSource.class)
                 .url("jdbc:mariadb://localhost:" + randomPort + "/" + database.getSchema())
                 .username(database.getUsername())
                 .password(database.getPassword())
