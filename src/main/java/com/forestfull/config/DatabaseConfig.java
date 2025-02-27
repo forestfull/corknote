@@ -5,6 +5,7 @@ import com.forestfull.prop.TunnelingProperties;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 public class DatabaseConfig {
 
+    private Session session;
     private final TunnelingProperties properties;
 
     @Bean(name = "webDataSource")
@@ -43,13 +45,12 @@ public class DatabaseConfig {
         TunnelingProperties.Database database = properties.getDatabase();
 
         final JSch jsch = new JSch();
-        Session session = jsch.getSession(ssh.getUsername(), ssh.getHost(), ssh.getPort());
+        session = jsch.getSession(ssh.getUsername(), ssh.getHost(), ssh.getPort());
         session.setPassword(ssh.getPassword());
         session.setConfig("StrictHostKeyChecking", "no");
         session.connect();
 
         int randomPort = session.setPortForwardingL(0, "localhost", database.getPort());
-
 
         DataSource dataSource = DataSourceBuilder.create()
                 .url("jdbc:mariadb://localhost:" + randomPort + "/" + database.getSchema())
@@ -61,5 +62,13 @@ public class DatabaseConfig {
         Log.info("connected to mailcowDataSource");
 
         return dataSource;
+    }
+
+    @PreDestroy
+    public void stopSshTunnel() {
+        if (session != null && session.isConnected()){
+            session.disconnect();
+            Log.info("Closing session");
+        }
     }
 }
