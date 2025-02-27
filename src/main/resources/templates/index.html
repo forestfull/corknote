@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
-<body th:layout:fragment="content">
-body
+<head>
+    <meta th:replace="~{/fragments/meta :: deafult-meta}">
+    <script th:replace="~{/fragments/meta :: general-script}"></script>
+    <link th:replace="~{/fragments/meta :: general-style}">
+
+    <title>Cork Note</title>
+</head>
+<body>
+<header th:replace="~{/fragments/header :: header}"></header>
+
+
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>
