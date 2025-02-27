@@ -17,15 +17,11 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
+@RequiredArgsConstructor
 public class DatabaseConfig {
 
     private Session session;
     private final TunnelingProperties properties;
-
-    @Autowired
-    public DatabaseConfig(TunnelingProperties properties) {
-        this.properties = properties;
-    }
 
     @Bean(name = "webDataSource")
     DataSource webDataSource(@Value("${datasource.web.driver-class-name}") String driverClassName
