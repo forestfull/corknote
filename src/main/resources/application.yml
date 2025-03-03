@@ -24,13 +24,7 @@ datasource:
 logup:
   level: INFO # ALL, INFO, WARN, ERROR, OFF
   log-format:
-    placeholder: "{datetime} {level} {thread} - {msg}{new-line}"
+    placeholder: "{datetime} {level}  - {msg}{new-line}"
     date-time-format: yyyy-MM-dd HH:mm:ss
-logging:
-  level:
-    org.springframework : error
-    com.ulisesbocchio: error
-    org.apache: error
-    com.forestfull: error
 server:
   port: 80
